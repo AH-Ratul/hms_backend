@@ -16,10 +16,11 @@ const userLogin = require("./route/userLogin/userLogin");
 const addRoom = require("./route/Room/addRoom");
 const getRoom = require("./route/Room/getRoom");
 const addemployee = require("./route/employee/addEmployee");
-const getEmployee = require('./route/employee/getEmployee');
-const booking = require('./route/Booking/booking');
-const booking_details = require('./route/Booking/getBookingDetails')
- 
+const getEmployee = require("./route/employee/getEmployee");
+const booking = require("./route/Booking/booking");
+const booking_details = require("./route/Booking/getBookingDetails");
+const search_rooms = require("./route/SearchRooms/SearchRooms");
+
 //------------------- Routes ----------------------------------
 app.use("/adminsignup", adminSignup);
 app.use("/adminlogin", adminLogin);
@@ -28,9 +29,10 @@ app.use("/userLogin", userLogin);
 app.use("/addroom", addRoom);
 app.use("/getRoom", getRoom);
 app.use("/addemployee", addemployee);
-app.use('/getEmployee', getEmployee);
-app.use('/booking', booking);
+app.use("/getEmployee", getEmployee);
+app.use("/booking", booking);
 app.use("/booking-details", booking_details);
+app.use("/search-rooms", search_rooms);
 
 //--------- API route ---------------
 app.get("/", (req, res) => {
