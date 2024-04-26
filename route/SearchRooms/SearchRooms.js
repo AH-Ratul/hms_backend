@@ -7,10 +7,10 @@ try {
     const { check_in, check_out } = req.body;
 
     const sql = `SELECT *
-        FROM rooms
+        FROM room
         WHERE room_id NOT IN (
           SELECT room_id
-          FROM bookings
+          FROM booking
           WHERE (check_in BETWEEN ? AND ?)
              OR (check_out BETWEEN ? AND ?)
              OR (check_in <= ? AND check_out >= ?)
@@ -27,4 +27,8 @@ try {
             }
         } )
   });
-} catch (error) {}
+} catch (error) {
+    console.log(error)
+}
+
+module.exports = router;
