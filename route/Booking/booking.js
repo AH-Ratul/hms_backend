@@ -10,7 +10,7 @@ try {
   router.post("/", (req, res) => {
     const data = req.body;
 
-    const sql = `INSERT INTO booking(room_id, room_name, room_type, first_name, last_name, address, city,phone, email, check_in, check_out, adults, kids) VALUES('${data.room_id}', '${data.room_name}','${data.room_type}','${data.first_name}','${data.last_name}','${data.address}','${data.city}','${data.phone}','${data.email}','${data.check_in}','${data.check_out}','${data.adults}','${data.kids}');`;
+    const sql = `INSERT INTO booking(room_id, room_name, room_type, nights, total_amount, payment_method, check_in, check_out, first_name, last_name, address, city,phone, email, adults, kids) VALUES('${data.room_id}', '${data.room_name}','${data.room_type}','${data.nights}','${data.total_amount}','${data.payment_method}','${data.check_in}','${data.check_out}','${data.first_name}','${data.last_name}','${data.address}','${data.city}','${data.phone}','${data.email}','${data.adults}','${data.kids}');`;
 
     db.query(sql, (err, results) => {
       if (err) {

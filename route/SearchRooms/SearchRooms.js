@@ -20,14 +20,7 @@ try {
              OR (? <= check_in AND ? >= check_out)
         )`;
 
-    const params = [
-      check_in,
-      check_out,
-      check_in,
-      check_out,
-      check_in,
-      check_out,
-    ];
+    const params = [check_in, check_out, check_in, check_out, check_in, check_out];
 
     db.query(sql, params, (err, results) => {
       if (err) {
