@@ -22,7 +22,7 @@ db.connect((err) => {
     console.error("mysql connection failed" + err.stack);
     return;
   }
-  console.log("Connected to Mysql database");
+  console.log("Connected to Mysql database_1");
 });
 
 // connect to mysql db2
@@ -31,7 +31,7 @@ db2.connect((err) => {
     console.error("mysql connection failed" + err.stack);
     return;
   }
-  console.log("Connected to Mysql database-2");
+  console.log("Connected to Mysql database_2");
 });
 
 module.exports = { db, db2 };
