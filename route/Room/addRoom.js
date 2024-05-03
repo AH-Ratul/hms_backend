@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("../../DB/db");
+const { db, db2 } = require("../../DB/db");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -17,8 +17,19 @@ try {
         console.log("error insert data", err);
         res.status(500).json({ error: "Internal server error" });
       } else {
-        console.log(results, "room added");
-        res.status(200).json({ message: "Room Added" });
+        console.log(results, "room added to db1");
+        //res.status(200).json({ message: "Room Added" });
+
+        // for db 2
+        db2.query(sql, (err2, results2) => {
+          if (err2) {
+            console.log("error insert data", err);
+            res.status(500).json({ error: "Internal server error" });
+          } else {
+            console.log(results2, "room added to db2");
+            res.status(200).json({ message: "Room Added to db_1 and db_2" });
+          }
+        });
       }
     });
   });

@@ -1,5 +1,5 @@
 const express = require("express");
-const db = require("../../DB/db");
+const {db} = require("../../DB/db");
 const router = express.Router();
 
 router.get("/", (req, res) => {
