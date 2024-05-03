@@ -8,8 +8,7 @@ router.get("/", (req, res) => {
 
 try {
   router.post("/", (req, res) => {
-    const { name, position, branch, phone, address, hire_date, salary } =
-      req.body;
+    const { name, position, branch, phone, address, hire_date, salary } = req.body;
 
     const sql = `INSERT INTO employee(name, position, branch, phone, address, hire_date, salary) VALUES("${name}", "${position}","${branch}", "${phone}", "${address}", "${hire_date}", "${salary}")`;
 
