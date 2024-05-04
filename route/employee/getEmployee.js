@@ -6,6 +6,7 @@ try {
   router.get("/", (req, res) => {
     const sql = `SELECT * FROM employee`;
 
+    // execute first database
     db.query(sql, (err, results1) => {
       if (err) {
         console.error("Error in database 1:", err);
