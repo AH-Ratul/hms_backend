@@ -10,7 +10,7 @@ try {
     db.query(sql, (err, results1) => {
       if (err) {
         console.error("Error in database 1:", err);
-        res.status(500).json({ error: "Internal server error" });
+        res.status(500).json({ error: "Internal server1 error" });
         return;
       }
 
@@ -18,7 +18,7 @@ try {
       db2.query(sql, (err, results2) => {
         if (err) {
           console.error("Error in database 2:", err);
-          res.status(500).json({ error: "Internal server error" });
+          res.status(500).json({ error: "Internal server2 error" });
           return;
         }
 
