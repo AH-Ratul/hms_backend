@@ -1,5 +1,5 @@
 const express = require("express");
-const {db} = require("../../DB/db");
+const { db, db2 } = require("../../DB/db");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -9,6 +9,8 @@ router.get("/", (req, res) => {
 try {
   router.post("/", (req, res) => {
     const { check_in, check_out } = req.body;
+
+    let results = [];
 
     const sql = `SELECT *
         FROM room
@@ -20,16 +22,32 @@ try {
              OR (? <= check_in AND ? >= check_out)
         )`;
 
-    const params = [check_in, check_out, check_in, check_out, check_in, check_out];
+    const params = [
+      check_in,
+      check_out,
+      check_in,
+      check_out,
+      check_in,
+      check_out,
+    ];
 
-    db.query(sql, params, (err, results) => {
+    db.query(sql, params, (err, results1) => {
       if (err) {
         console.log("error", err);
         res.status(500).json({ error: "Internal Server Error" });
-      } else {
-        res.status(200).json(results);
-        //console.log(results)
       }
+
+      results = results.concat(results1);
+
+      db2.query(sql, params, (err, results2) => {
+        if (err) {
+          console.log("err 2", err);
+        }
+
+        results = results.concat(results2);
+
+        res.status(200).json(results);
+      });
     });
   });
 } catch (error) {
