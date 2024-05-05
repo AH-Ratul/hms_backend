@@ -38,12 +38,12 @@ app.use("/search-rooms", search_rooms);
 app.use("/total-booking", total_booking);
 app.use("/delete-booking", delete_booking);
 
-//--------- API route ---------------
+//------------ API route ---------------
 app.get("/", (req, res) => {
   res.send(`server is listening at port ${port}`);
 });
 
-// start the server
+//------------ start the server -----------------
 app.listen(port, () => {
   console.log(`server is listening on port ${port}`);
 });

@@ -16,9 +16,9 @@ try {
       db.query(sql, (err, results) => {
         if (err) {
           console.log("error occuired-1", err);
-          res.status(500).json({ error: "Internal server error" });
+          res.status(500).json({ error: "Internal server1 error" });
         } else {
-          console.log("employee added to db1", results);
+          //console.log("employee added to db1", results);
           res.status(200).json({ message: "Employee Added to DB_1" });
         }
       });
@@ -26,9 +26,9 @@ try {
       db2.query(sql, (err, results) => {
         if (err) {
           console.log("error occuired-2", err);
-          res.status(500).json({ error: "Internal server error" });
+          res.status(500).json({ error: "Internal server2 error" });
         } else {
-          console.log("employee added to db2", results);
+          //console.log("employee added to db2", results);
           res.status(200).json({ message: "Employee Added to DB_2" });
         }
       });
