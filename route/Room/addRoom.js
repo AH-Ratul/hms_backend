@@ -27,7 +27,7 @@ try {
         console.log("error insert data", err);
         res.status(500).json({ error: "Internal server error" });
       } else {
-        console.log(results, "room added");
+        //console.log(results, "room added");
         res.status(200).json({ message: "Room Added" });
       }
     });
