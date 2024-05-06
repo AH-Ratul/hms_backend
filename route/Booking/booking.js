@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
     data.phone,
     data.email,
     data.adults,
-    data.kids,
+    data.kids, 
   ];
 
   database.query(sql, values1, (err, results) => {

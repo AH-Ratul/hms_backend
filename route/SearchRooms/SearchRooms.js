@@ -37,6 +37,7 @@ try {
         res.status(500).json({ error: "Internal Server Error" });
       }
 
+      // combine results1 from db1 with results array
       results = results.concat(results1);
 
       db2.query(sql, params, (err, results2) => {
@@ -44,8 +45,10 @@ try {
           console.log("err 2", err);
         }
 
+        // combine results2 from db2 with results array
         results = results.concat(results2);
 
+        // send results as response
         res.status(200).json(results);
       });
     });

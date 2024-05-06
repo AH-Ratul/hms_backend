@@ -5,7 +5,7 @@ const router = express.Router();
 try {
   router.get("/", (req, res) => {
     let results = [];
-    
+
     const sql = `SELECT * FROM booking`;
 
     db.query(sql, (err, results1) => {
@@ -13,7 +13,7 @@ try {
         console.log(err);
       }
 
-      // combine results from db1 with results array
+      // combine results1 from db1 with results array
       results = results.concat(results1);
 
       db2.query(sql, (err, results2) => {
@@ -21,7 +21,7 @@ try {
           console.log("err 2", err);
         }
 
-        // combine results from db2 with results array
+        // combine results2 from db2 with results array
         results = results.concat(results2);
 
         // send results as response

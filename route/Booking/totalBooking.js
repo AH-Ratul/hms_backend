@@ -16,21 +16,21 @@ try {
     db.query(sql1, (err, results) => {
       if (err) {
         console.error("Error:", err);
-        return res.status(500).json({ error: "Internal server error" });
+        return res.status(500).json({ error: "Internal server1 error" });
       }
       totalRoom += results[0].total;
 
       db.query(sql2, (err, results) => {
         if (err) {
           console.error("Error:", err);
-          return res.status(500).json({ error: "Internal server error" });
+          return res.status(500).json({ error: "Internal server1 error" });
         }
         totalEmployee += results[0].total;
 
         db.query(sql3, (err, results) => {
           if (err) {
             console.error("Error:", err);
-            return res.status(500).json({ error: "Internal server error" });
+            return res.status(500).json({ error: "Internal server1 error" });
           }
           totalBooking += results[0].total;
 
@@ -38,21 +38,21 @@ try {
           db2.query(sql1, (err, results) => {
             if (err) {
               console.error("Error:", err);
-              return res.status(500).json({ error: "Internal server error" });
+              return res.status(500).json({ error: "Internal server2 error" });
             }
             totalRoom += results[0].total;
 
             db2.query(sql2, (err, results) => {
               if (err) {
                 console.error("Error:", err);
-                return res.status(500).json({ error: "Internal server error" });
+                return res.status(500).json({ error: "Internal server2 error" });
               }
               totalEmployee += results[0].total;
 
               db2.query(sql3, (err, results) => {
                 if (err) {
                   console.error("Error:", err);
-                  return res.status(500).json({ error: "Internal server error" });
+                  return res.status(500).json({ error: "Internal server2 error" });
                 }
                 totalBooking += results[0].total;
 
