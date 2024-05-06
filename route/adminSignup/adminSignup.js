@@ -1,5 +1,5 @@
 const express = require("express");
-const {db} = require("../../DB/db");
+const { db, db2 } = require("../../DB/db");
 const router = express.Router();
 
 router.get("/", (req, res) => {
@@ -14,12 +14,19 @@ router.post("/", (req, res) => {
 
   db.query(sql, (err, result) => {
     if (err) {
-      console.error("Error inserting data", err);
-      res.status(500).json({ error: "Interser server error" });
-    } else {
-      console.log("Data Inserted", result);
-      res.status(200).json({ message: "admin sign up successfull" });
+      console.error("Error in db1", err);
+      return res.status(500).json({ error: "Internal server1 error" });
     }
+
+    // insert to second database
+    db2.query(sql, (err, results1) => {
+      if (err) {
+        console.log("error in db2", err);
+        return res.status(500).json({ error: "Internal server2 error" });
+      }
+
+      res.status(200).json({ message: "admin sign up successfull" });
+    });
   });
 });
 
