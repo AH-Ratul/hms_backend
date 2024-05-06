@@ -22,6 +22,8 @@ const booking_details = require("./route/Booking/getBookingDetails");
 const search_rooms = require("./route/SearchRooms/SearchRooms");
 const total_booking = require("./route/Booking/totalBooking");
 const delete_booking = require("./route/Booking/deleteBooking");
+const delete_employee = require("./route/employee/deleteEmployee");
+const delete_room = require("./route/Room/deleteRoom");
 
 //------------------- Routes ----------------------------------
 app.use("/adminsignup", adminSignup);
@@ -37,6 +39,8 @@ app.use("/booking-details", booking_details);
 app.use("/search-rooms", search_rooms);
 app.use("/total-booking", total_booking);
 app.use("/delete-booking", delete_booking);
+app.use("/delete-employee", delete_employee);
+app.use("/delete-room", delete_room);
 
 //------------ API route ---------------
 app.get("/", (req, res) => {
